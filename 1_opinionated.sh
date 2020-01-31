@@ -21,3 +21,4 @@ apt-get install virtualbox -y
 #snap install chromium
 #snap install google-play-music-desktop-player
 #snap install rider --classic
+#sudo apt-get install network-manager-openconnect-gnome

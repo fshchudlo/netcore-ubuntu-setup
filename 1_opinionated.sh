@@ -31,3 +31,12 @@ apt-get install virtualbox -y
 
 #snap install google-play-music-desktop-player
 #sudo apt-get install network-manager-openconnect-gnome
+
+#Set power settings which I prefer to use:
+# sudo gedit /etc/default/tlp
+# TLP_ENABLE=1
+# TLP_DEFAULT_MODE=AC
+# TLP_PERSISTENT_DEFAULT=0
+# Uncomment and set to enpty string RUNTIME_PM_DRIVER_BLACKLIST=""
+# USB_AUTOSUSPEND=0
+# sudo prime-select intel

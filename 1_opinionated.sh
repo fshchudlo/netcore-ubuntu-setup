@@ -40,3 +40,4 @@ apt-get install virtualbox -y
 # Uncomment and set to enpty string RUNTIME_PM_DRIVER_BLACKLIST=""
 # USB_AUTOSUSPEND=0
 # sudo prime-select intel
+# Another useful tips here - https://askubuntu.com/a/1134726

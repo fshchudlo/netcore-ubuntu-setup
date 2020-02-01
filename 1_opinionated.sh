@@ -18,7 +18,8 @@ installRussianLanguage
 
 apt-get install virtualbox -y
 
-#snap install chromium
+#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#sudo dpkg -i google-chrome-stable_current_amd64.deb
 #snap install google-play-music-desktop-player
 #snap install rider --classic
 #sudo apt-get install network-manager-openconnect-gnome

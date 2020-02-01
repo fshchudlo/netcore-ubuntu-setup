@@ -1,20 +1,20 @@
 #!/bin/bash
 
-function installRussianLanguage {
-apt-get install language-pack-ru -y
-apt-get install language-pack-gnome-ru -y
-apt-get install language-pack-ru-base -y
-apt-get install language-pack-gnome-ru-base -y
-apt-get install gnome-user-docs-ru -y
-apt-get install gnome-getting-started-docs-ru -y
-apt-get install hunspell-ru -y
-apt-get install firefox-locale-ru -y
+function installLanguage {
+apt-get install language-pack-$1 -y
+apt-get install language-pack-gnome-$1 -y
+apt-get install language-pack-$1-base -y
+apt-get install language-pack-gnome-$1-base -y
+apt-get install gnome-user-docs-$1 -y
+apt-get install gnome-getting-started-docs-$1 -y
+apt-get install hunspell-$1 -y
+apt-get install firefox-locale-$1 -y
 }
 
 apt-get update
 apt-get upgrade
 
-installRussianLanguage
+installLanguage "ru"
 
 apt-get install virtualbox -y
 

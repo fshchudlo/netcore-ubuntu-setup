@@ -24,6 +24,8 @@ apt-get install virtualbox -y
 #wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.958_amd64.deb
 #sudo dpkg -i teams_1.3.00.958_amd64.deb
 
+#wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.16.6319.tar.gz
+#sudo tar xvf jetbrains-toolbox-1.16.6319.tar.gz
+
 #snap install google-play-music-desktop-player
-#snap install rider --classic
 #sudo apt-get install network-manager-openconnect-gnome

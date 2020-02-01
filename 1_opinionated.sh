@@ -27,5 +27,7 @@ apt-get install virtualbox -y
 #wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.16.6319.tar.gz
 #sudo tar xvf jetbrains-toolbox-1.16.6319.tar.gz
 
+#sudo apt-get install tlp
+
 #snap install google-play-music-desktop-player
 #sudo apt-get install network-manager-openconnect-gnome

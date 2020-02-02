@@ -117,6 +117,16 @@ fi
 fi
 }
 
+function installPSCore {
+read -p $'\e[96mDo you want to install PowerShell Core?(y/N)\e[0m' -n 1 -r
+echo    
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+sudo snap install powershell --classic
+fi
+}
+
+
 function proposeReboot {
 if $REBOOT
 then
@@ -140,3 +150,4 @@ installVPN
 installJBToolbox
 configurePowerSettings
 proposeReboot
+installPSCore

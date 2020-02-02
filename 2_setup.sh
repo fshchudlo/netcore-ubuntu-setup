@@ -62,7 +62,11 @@ apt-get update
 apt-get install docker-ce -y
 }
 
-
+function installDockerCompose{
+echo -e "\e[96mInstalling Docker Compose\e[0m"
+curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+}
 
 function installKubectl {
 #https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-snap
@@ -148,6 +152,7 @@ installGit
 installNETCoreSDK
 installNodejs
 installDockerCE
+installDockerCompose
 installKubectl
 installVSCode
 installVSCodeExtensions

@@ -20,6 +20,9 @@ apt-get install apt-transport-https -y
 apt-get update
 apt-get install dotnet-sdk-3.1 -y
 rm packages-microsoft-prod.deb
+
+echo -e "\e[96mInstalling PowerShell Core\e[0m"
+dotnet tool install --global PowerShell
 }
 
 
@@ -151,4 +154,3 @@ installDockerCE
 installKubectl
 installVSCode
 installVSCodeExtensions
-

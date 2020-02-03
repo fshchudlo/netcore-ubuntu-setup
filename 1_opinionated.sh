@@ -98,6 +98,7 @@ echo -e "\e[93mTLP_DEFAULT_MODE=AC\e[0m"
 echo -e "\e[93mTLP_PERSISTENT_DEFAULT=0\e[0m"
 echo -e "\e[93mRUNTIME_PM_DRIVER_BLACKLIST=""\e[0m"
 echo -e "\e[93mUSB_AUTOSUSPEND=0\e[0m"
+echo -e "\e[93mDEVICES_TO_DISABLE_ON_STARTUP=\"bluetooth\"\e[0m"
 echo -e "\e[93mAnother useful tips here - https://askubuntu.com/a/1134726\e[0m"
 read -p $'\e[96mDo you want to change the settings right now?(y/N)\e[0m' -n 1 -r
 echo    

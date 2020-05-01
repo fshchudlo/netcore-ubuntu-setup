@@ -1,6 +1,14 @@
 #!/bin/bash
 REBOOT=false
 
+function setSystemTimeToLocal {
+read -p $'\e[96mDo you want to set system time to local (helps to solve issue with time if you''ve instlled Windows also)?(y/N)\e[0m' -n 1 -r
+echo    
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+timedatectl set-local-rtc 1 --adjust-system-clock
+fi
+}
 function installLanguage {
 read -p $'\e[96mEnter your language two-letter code if you want to install it\e[0m' -n 2 -r
 echo    
@@ -142,6 +150,7 @@ fi
 apt-get update
 apt-get upgrade
 
+setSystemTimeToLocal
 installLanguage
 installVirtualBox
 installChrome

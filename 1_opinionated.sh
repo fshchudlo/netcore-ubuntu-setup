@@ -2,7 +2,7 @@
 REBOOT=false
 
 function setSystemTimeToLocal {
-read -p $'\e[96mDo you want to set system time to local (helps to solve issue with time if you have installed Windows also)?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to set system time to local (helps to solve issue with time if you have installed Windows also)?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -11,7 +11,7 @@ fi
 }
 
 function installLanguage {
-read -p $'\e[96mEnter your language two-letter code if you want to install it\e[0m' -n 2 -r
+read -p $'\e[96mEnter your language two-letter code if you want to install it \e[0m' -n 2 -r
 echo    
 if [ -z "$REPLY" ]
 then
@@ -31,7 +31,7 @@ fi
 }
 
 function installVirtualBox {
-read -p $'\e[96mDo you want to install VirtualBox?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to install VirtualBox?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -41,7 +41,7 @@ fi
 }
 
 function installChrome {
-read -p $'\e[96mDo you want to install Google Chrome?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to install Google Chrome?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -55,7 +55,7 @@ fi
 }
 
 function installGDMP {
-read -p $'\e[96mDo you want to install Google Desktop Music Player?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to install Google Desktop Music Player?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -65,7 +65,7 @@ fi
 
 
 function installJBToolbox {
-read -p $'\e[96mDo you want to install Jetbrains Toolbox?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to install Jetbrains Toolbox?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -82,7 +82,7 @@ fi
 
 
 function installMSTeams {
-read -p $'\e[96mDo you want to install MS Teams?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to install MS Teams?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -96,7 +96,7 @@ fi
 }
 
 function installVPN {
-read -p $'\e[96mDo you want to install OpenConnect VPN?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to install OpenConnect VPN?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -105,11 +105,11 @@ fi
 }
 
 function configurePowerSettings {
-read -p $'\e[96mDo you want to install tlp and change power settings?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to install tlp and change power settings? (y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-apt-get install tlp tlp-rdw
+apt-get install tlp tlp-rdw -y
 /etc/init.d/tlp restart
 echo -e "\e[96mNow you can edit your power settings\e[0m"
 echo -e "\e[96mThis is the settings which I prefer to use\e[0m"
@@ -120,7 +120,7 @@ echo -e "\e[93mRUNTIME_PM_DRIVER_BLACKLIST=""\e[0m"
 echo -e "\e[93mUSB_AUTOSUSPEND=0\e[0m"
 echo -e "\e[93mDEVICES_TO_DISABLE_ON_STARTUP=\"bluetooth\"\e[0m"
 echo -e "\e[93mAnother useful tips here - https://askubuntu.com/a/1134726\e[0m"
-read -p $'\e[96mDo you want to change the settings right now?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to change the settings right now?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -128,7 +128,7 @@ REBOOT=true
 gedit /etc/tlp.conf
 fi
 
-read -p $'\e[96mDo you want to set Intel videocard as your default?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to set Intel videocard as your default?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -139,7 +139,7 @@ fi
 }
 
 function installPSCore {
-read -p $'\e[96mDo you want to install PowerShell Core?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to install PowerShell Core?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then

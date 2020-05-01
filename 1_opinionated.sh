@@ -2,13 +2,14 @@
 REBOOT=false
 
 function setSystemTimeToLocal {
-read -p $'\e[96mDo you want to set system time to local (helps to solve issue with time if you''ve instlled Windows also)?(y/N)\e[0m' -n 1 -r
+read -p $'\e[96mDo you want to set system time to local (helps to solve issue with time if you have installed Windows also)?(y/N)\e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 timedatectl set-local-rtc 1 --adjust-system-clock
 fi
 }
+
 function installLanguage {
 read -p $'\e[96mEnter your language two-letter code if you want to install it\e[0m' -n 2 -r
 echo    
@@ -46,6 +47,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
+
+rm google-chrome-stable_current_amd64.deb
+
 update-alternatives --config x-www-browser
 fi
 }
@@ -65,10 +69,14 @@ read -p $'\e[96mDo you want to install Jetbrains Toolbox?(y/N)\e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-local TOOLBOX_VERSION='1.16.6319'
+local TOOLBOX_VERSION='1.17.6856'
 wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-$TOOLBOX_VERSION.tar.gz
 tar xvf jetbrains-toolbox-$TOOLBOX_VERSION.tar.gz
 jetbrains-toolbox-$TOOLBOX_VERSION/jetbrains-toolbox
+
+rm jetbrains-toolbox-$TOOLBOX_VERSION.tar.gz
+rm -rf jetbrains-toolbox-$TOOLBOX_VERSION
+
 fi
 }
 
@@ -78,9 +86,12 @@ read -p $'\e[96mDo you want to install MS Teams?(y/N)\e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-local TEAMS_VERSION='1.3.00.958_amd64'
+local TEAMS_VERSION='1.3.00.5153_amd64'
 wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_$TEAMS_VERSION.deb
 dpkg -i teams_$TEAMS_VERSION.deb
+
+rm teams_$TEAMS_VERSION.deb
+
 fi
 }
 
@@ -98,7 +109,8 @@ read -p $'\e[96mDo you want to install tlp and change power settings?(y/N)\e[0m'
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-apt-get install tlp
+apt-get install tlp tlp-rdw
+/etc/init.d/tlp restart
 echo -e "\e[96mNow you can edit your power settings\e[0m"
 echo -e "\e[96mThis is the settings which I prefer to use\e[0m"
 echo -e "\e[93mTLP_ENABLE=1\e[0m"
@@ -113,7 +125,7 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 REBOOT=true
-gedit /etc/default/tlp
+gedit /etc/tlp.conf
 fi
 
 read -p $'\e[96mDo you want to set Intel videocard as your default?(y/N)\e[0m' -n 1 -r
@@ -152,12 +164,12 @@ apt-get upgrade
 
 setSystemTimeToLocal
 installLanguage
-installVirtualBox
 installChrome
 installGDMP
 installMSTeams
-installVPN
 installJBToolbox
 configurePowerSettings
-proposeReboot
 installPSCore
+installVirtualBox
+installVPN
+proposeReboot

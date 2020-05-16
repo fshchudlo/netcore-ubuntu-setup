@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function installGit {
-#h ttps://git-scm.com/download/linux
+# https://git-scm.com/download/linux
 echo -e "\e[96mInstalling Git\e[0m"
 apt-get install git -y
 }
@@ -12,8 +12,8 @@ function installNETCoreSDK {
 # https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-2004
 echo -e "\e[96mInstalling .NET Core SDK\e[0m"
 
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
+wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
 
 apt-get update
 apt-get install apt-transport-https -y
@@ -138,7 +138,7 @@ sudo -u $SUDO_USER code --install-extension ms-kubernetes-tools.vscode-kubernete
 
 
 
-apt-get update
+apt-get update -q
 
 installGit
 installNETCoreSDK

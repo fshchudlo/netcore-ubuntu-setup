@@ -160,7 +160,7 @@ installLanguage
 installChrome
 installGDMP
 installMSTeams
-installJBToolbox
+installJBRider
 configurePowerSettings
 installPSCore
 installVirtualBox

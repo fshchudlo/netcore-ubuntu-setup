@@ -33,31 +33,10 @@ echo -e "\e[96mInstalling Nodejs\e[0m"
 snap install node --classic --channel=14
 }
 
-
-
-function installDockerCE {
-# https://docs.docker.com/engine/install/ubuntu/
-echo -e "\e[96mInstalling Docker CE\e[0m"
-
-apt-get install apt-transport-https -y
-apt-get install ca-certificates -y
-apt-get install curl -y
-apt-get install software-properties-common -y
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $DISTNAME \
-   stable"
-
-apt-get update
-apt-get install docker-ce -y
-}
-
 function installDockerCompose {
+# this command installs docker-ce and containerd also
 echo -e "\e[96mInstalling Docker Compose\e[0m"
-apt-get install docker-compose
+apt-get install docker-compose -y
 }
 
 function installKubectl {
@@ -143,7 +122,6 @@ apt-get update -q
 installGit
 installNETCoreSDK
 installNodejs
-installDockerCE
 installDockerCompose
 installKubectl
 installVSCode

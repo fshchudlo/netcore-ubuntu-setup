@@ -64,19 +64,12 @@ fi
 }
 
 
-function installJBToolbox {
-read -p $'\e[96mDo you want to install Jetbrains Toolbox?(y/N) \e[0m' -n 1 -r
+function installJBRider {
+read -p $'\e[96mDo you want to install Jetbrains Rider?(y/N) \e[0m' -n 1 -r
 echo    
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-local TOOLBOX_VERSION='1.17.6856'
-wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-$TOOLBOX_VERSION.tar.gz
-tar xvf jetbrains-toolbox-$TOOLBOX_VERSION.tar.gz
-jetbrains-toolbox-$TOOLBOX_VERSION/jetbrains-toolbox
-
-rm jetbrains-toolbox-$TOOLBOX_VERSION.tar.gz
-rm -rf jetbrains-toolbox-$TOOLBOX_VERSION
-
+snap install rider --classic
 fi
 }
 

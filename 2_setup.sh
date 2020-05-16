@@ -60,6 +60,8 @@ then
 fi
 
 echo -e "\e[96mInstalling Minikube\e[0m"
+
+apt-get install curl -y
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   && chmod +x minikube
 

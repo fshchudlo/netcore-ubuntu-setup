@@ -29,8 +29,8 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-# see https://www.softwaredeveloper.blog/git-credential-storage-libsecret
-#for ssh configuration see https://www.softwaredeveloper.blog/store-git-ssh-credentials-in-linux
+# https://www.softwaredeveloper.blog/git-credential-storage-libsecret
+# for ssh configuration see https://www.softwaredeveloper.blog/store-git-ssh-credentials-in-linux
 
 apt-get install libsecret-1-0 libsecret-1-dev -y
 cd /usr/share/doc/git/contrib/credential/libsecret
@@ -40,7 +40,7 @@ fi
 }
 
 function configureDockerAccess {
-#https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+# https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
 sudo usermod -aG docker $SUDO_USER
 echo -e "\e[93mCurrent user configured to access docker socket\e[0m"
 echo -e "\e[93mYou need to restart computer before using docker\e[0m"
@@ -50,7 +50,8 @@ function configureMinikubeDashboard {
 echo -e "\e[96mRunning Minikube\e[0m"
 sudo -u $SUDO_USER minikube start
 echo -e "\e[96mInstalling Kubernetes Dashboard\e[0m"
-sudo -u $SUDO_USER kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta6/aio/deploy/recommended.yaml
+# https://github.com/kubernetes/dashboard
+sudo -u $SUDO_USER kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
 
 echo -e "\e[96mApplying admin-user and it's role mapping\e[0m"
 sudo -u $SUDO_USER kubectl apply -f minikube_admin_user.yaml

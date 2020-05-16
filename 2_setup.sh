@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function installGit {
-#https://git-scm.com/download/linux
+#h ttps://git-scm.com/download/linux
 echo -e "\e[96mInstalling Git\e[0m"
 apt-get install git -y
 }
@@ -9,11 +9,11 @@ apt-get install git -y
 
 
 function installNETCoreSDK {
-#https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-1904
+# https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-2004
 echo -e "\e[96mInstalling .NET Core SDK\e[0m"
 
-wget -q "https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb" -O packages-microsoft-prod.deb
-dpkg -i packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
 
 apt-get update
 apt-get install apt-transport-https -y
@@ -26,17 +26,17 @@ rm packages-microsoft-prod.deb
 
 function installNodejs {
 # https://github.com/nodesource/distributions/blob/master/README.md#snapinstall
-# In order to update to major versiob use:
-#	snap refresh node --channel=14
+# In order to update to major version use:
+#	snap refresh node --channel=15
 echo -e "\e[96mInstalling Nodejs\e[0m"
 
-snap install node --classic --channel=13
+snap install node --classic --channel=14
 }
 
 
 
 function installDockerCE {
-#https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository
+# https://docs.docker.com/engine/install/ubuntu/
 echo -e "\e[96mInstalling Docker CE\e[0m"
 
 apt-get install apt-transport-https -y
@@ -45,13 +45,6 @@ apt-get install curl -y
 apt-get install software-properties-common -y
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-# For "eoan" distribution we need to change channel to "disco" - https://github.com/docker/for-linux/issues/833#issuecomment-544257796
-DISTNAME=`lsb_release -cs`
-if [[ $DISTNAME == "eoan" ]]
-then
-DISTNAME="disco"
-fi
 
 add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -62,10 +55,9 @@ apt-get update
 apt-get install docker-ce -y
 }
 
-function installDockerCompose{
+function installDockerCompose {
 echo -e "\e[96mInstalling Docker Compose\e[0m"
-curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+apt-get install docker-compose
 }
 
 function installKubectl {

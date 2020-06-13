@@ -96,7 +96,7 @@ function installVSCodeExtensions() {
 
   #Backend extensions
   echo -e "\t \e[96mInstalling C# extension\e[0m"
-  sudo -u $SUDO_USER code --install-extension ms-vscode.csharp
+  sudo -u $SUDO_USER code --install-extension ms-dotnettools.csharp
 
   #Containers extensions
   echo -e "\t \e[96mInstalling Docker extension\e[0m"

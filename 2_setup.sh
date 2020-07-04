@@ -101,6 +101,9 @@ function installVSCodeExtensions() {
   echo -e "\t \e[96mInstalling C# extension\e[0m"
   sudo -u $SUDO_USER code --install-extension ms-dotnettools.csharp
 
+  echo -e "\t \e[96mInstalling rest-client extension\e[0m"
+  sudo -u $SUDO_USER code --install-extension humao.rest-client
+
   #Containers extensions
   echo -e "\t \e[96mInstalling Docker extension\e[0m"
   sudo -u $SUDO_USER code --install-extension ms-azuretools.vscode-docker

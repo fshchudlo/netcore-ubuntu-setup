@@ -78,6 +78,9 @@ function installVSCodeExtensions() {
   echo -e "\e[96mInstalling VS Code extensions\e[0m"
 
   #General extensions
+  echo -e "\t \e[96mInstalling IntelliCode extension\e[0m"
+  sudo -u $SUDO_USER code --install-extension visualstudioexptteam.vscodeintellicode
+
   echo -e "\t \e[96mInstalling Gitlens extension\e[0m"
   sudo -u $SUDO_USER code --install-extension eamodio.gitlens
 

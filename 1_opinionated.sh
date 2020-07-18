@@ -58,32 +58,19 @@ function installGDMP() {
     fi
 }
 
+function installSpotify() {
+    read -p $'\e[96mHow about Spotify?(y/N) \e[0m' -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        snap install spotify
+    fi
+}
+
 function installJBRider() {
     read -p $'\e[96mDo you want to install Jetbrains Rider?(y/N) \e[0m' -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         snap install rider --classic
-    fi
-}
-
-function installMSTeams() {
-    read -p $'\e[96mDo you want to install MS Teams?(y/N) \e[0m' -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        local TEAMS_VERSION='1.3.00.5153_amd64'
-        wget https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_$TEAMS_VERSION.deb
-        dpkg -i teams_$TEAMS_VERSION.deb
-
-        rm teams_$TEAMS_VERSION.deb
-
-    fi
-}
-
-function installVPN() {
-    read -p $'\e[96mDo you want to install OpenConnect VPN?(y/N) \e[0m' -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        apt-get install network-manager-openconnect-gnome
     fi
 }
 
@@ -143,10 +130,9 @@ setSystemTimeToLocal
 installLanguage
 installChrome
 installGDMP
-installMSTeams
+installSpotify
 installJBRider
 configurePowerSettings
 installPSCore
 installVirtualBox
-installVPN
 proposeReboot
